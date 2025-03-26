@@ -1,0 +1,20 @@
+From priviledged exec mode:
+TO CLEAR CONFIGURATION:
+delete vlan.dat
+erase startup-config
+reload
+
+From config
+TO SET A DEFAUL GATEWAY:
+ip default-gateway 192.168.100.1
+
+From config-line
+SET NO TIMEOUT WHEN CONFIGURING THE ROUTER:
+exec-timeout 0 0
+
+PREVENT ROUTER FROM INTERRUPTING YOU WHEN CONFIGURING AN INTERFACE:
+logging synchronous
+
+from config
+PREVENT ROUTER FROM LOOKING UP A MISTYPED COMMAND:
+no ip domain-lookup
