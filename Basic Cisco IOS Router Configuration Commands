@@ -1,0 +1,21 @@
+Basic Router Configuration Example Commands:
+(Enter global configuartion mode first)
+
+R1(config)#:
+		hostname R1
+		enable secret class
+		line console 0
+R1(config-line)#:
+		password cisco
+		login
+		line vty 04
+		password cisco
+		login
+		transport input ssh telnet
+		exit
+R1(config)#:
+		service password encryption
+		banner motd #write message between the symbols#
+		exit
+R1#:
+		copy running-config startup-config
