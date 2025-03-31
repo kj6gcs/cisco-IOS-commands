@@ -1,0 +1,30 @@
+Router>enable
+Router#Configure terminal
+Router(config)# hostname R1
+R1(config)#banner motd #Authorized Access Only!#
+R1(config)# enable secret [password]
+R1(config)# no ip domain-lookup
+R1(config)# interface [ethernet, fastethernet, gigabitethernet] [slot/port#]
+R1(config-if)# ip address xxx.xxx.xxx.xxx snm.snm.snm.snm 
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1# copy running-config startup-config
+
+
+Switch>enable
+Switch#configure terminal
+Switch(config)# hostname S1
+S1(config)# banner motd #Authorized Access Only!#
+S1(config)# line console 0
+S1(config-line)# password cisco
+S1(config-line)# login
+S1(config-line)# end
+S1# configure terminal
+S1(config)# enable secret class
+S1(config)# line vty 0 15
+S1(config-line)# password cisco
+S1(config-line)# login
+S1(config-line)# end
+S1(config)# service password-encryption
+S1(config)#exit
+S1# copy running-config startup-config
